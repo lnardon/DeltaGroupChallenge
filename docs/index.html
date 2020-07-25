@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Delta App</title>
+  </head>
+  <body>
+    <div class="mapContainer" id="mapid"></div>
+    <img src="./pin.png" alt="Pin" class="pin" id="pin"></img>
+    <div class="contentContainer">
+      <div class="mainContent">
+        <div class="inputDiv">
+          <input
+            id="address"
+            type="text"
+            class="addressInput"
+            placeholder="Rua Olinda, 140"
+          />
+          <img src="./target.svg" alt="Pin" class="inputIcon" />
+        </div>
+        <div class="text">
+          <h2 class="title">
+            Confirme o seu local
+          </h2>
+          <h4 class="description">
+            Ajude o seu prestador a localiza-lo mais rapidamente, ajuste sua
+            localização acima!
+          </h4>
+        </div>
+        <button class="btn" id="btn">
+          Confirmar o local da ocorrência
+            <img
+              src="./rightArrow.png"
+              alt="Arrow"
+              class="arrowIcon"
+            />
+        </button>
+      </div>
+      <div class="footer">
+        <div class="carInfoContainer">
+          <img src="./vw.png" alt=" Car Brand" class="carLogo" />
+          <div class="carInfoText">
+            <h3 class="label">
+              Placa
+            </h3>
+            <h2 class="licencePlate">
+              IXS-8269
+            </h2>
+          </div>
+        </div>
+        <div class="protocolInfoContainer">
+          <h3 class="label">
+            Protocolo
+          </h3>
+          <div class="protocolText">
+            <h4 class="protocolNumber">
+              1457845856894
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const mymap = L.map("mapid").setView([-30.01, -51.17], 17);
+      const atribution =
+        '&copy;<a href="https://www.openstreetmap.org/copyright">Open Street Map</a>';
+      const tiles = L.tileLayer(
+        "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        { atribution }
+      );
+      tiles.addTo(mymap);
+      const icon = L.icon({
+        iconUrl: "pin.png",
+        iconSize: [115, 75],
+      });
+
+      console.log(mymap.getCenter());
+
+      document.getElementById("btn").addEventListener("click", () => {
+        L.marker([mymap.getCenter().lat, mymap.getCenter().lng], {
+          icon: icon,
+        }).addTo(mymap);
+        alert(
+          `Ocorrência em Latitude:${mymap.getCenter().lat}\n e \nLongitude:${
+            mymap.getCenter().lng
+          }`
+        );
+        document.getElementById("pin").style.display = "none";
+      });
+    </script>
+    ;
+  </body>
+</html>
