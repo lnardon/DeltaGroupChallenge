@@ -7,7 +7,7 @@ As a plus to the challenge, I decided to implement a functional map and coordina
   <img src="./demo.gif">
 </p>
 
-## [Try it out here](https:/lnardon.github.io/DeltaGroupChallenge "Homepage")
+## [Try it out here](https://lnardon.github.io/DeltaGroupChallenge "Homepage")
 
 ### Installation
 
