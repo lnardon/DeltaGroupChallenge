@@ -1,6 +1,6 @@
 # Delta Group Challenge
 
-The Coding Challenge given to me was to recreate an Adobe Xd Mobile Screen with mocked information using a Vanilla Stack (HTML, CSS and JS) and also in React.
+The Coding Challenge given to me was to recreate an Adobe Xd Mobile Screen with mocked information using a Vanilla Stack (HTML, CSS and JS) and also React in just 2 days.
 As a plus to the challenge, I decided to implement a functional map and coordinates system instead of using a mocked image as the map.
 
 <p align="center">
